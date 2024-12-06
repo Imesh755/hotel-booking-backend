@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 import userRouter from "./routes/userRoutes.js";
 import galleryItemRouter from "./routes/galleryItemRoutes.js";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+
+dotenv.config()
 
 const app = express();
 
@@ -12,7 +16,7 @@ app.use(express.json());
 // Database connection string (replace with environment variable in production)
 const connectionString =
     process.env.MONGO_URI ||
-    "mongodb+srv://imesh:12345@cluster0.2okm6.mongodb.net/?retryWrites=true&w=majority";
+    process.env.MONGO_URI;
 
 // Middleware to verify JWT token in request header
 app.use((req, res, next) => {

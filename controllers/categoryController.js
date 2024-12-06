@@ -39,3 +39,24 @@ export function createCategory(req,res){
 
 
 }
+
+export function getCategory(res,res){
+    Category.fine().then(
+        (result)=>{
+            res.json(
+                {
+                    categories : result
+                }
+            )
+        }
+        
+    ).catch(
+        ()=>{
+            res.json(
+                {
+                    message:"faild to get categories"
+                }
+            )
+        }
+    )
+}

@@ -4,6 +4,8 @@ import userRouter from "./routes/userRoutes.js";
 import galleryItemRouter from "./routes/galleryItemRoutes.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import categoryRouter from "./routes/categoryRoutes.js";
+import roomRouter from "./routes/roomRoutes.js";
 
 
 dotenv.config()
@@ -47,6 +49,10 @@ mongoose
 // Mount routers
 app.use("/api/users", userRouter); // User-related routes
 app.use("/api/gallery", galleryItemRouter); // Gallery-related routes
+app.use("/api/category",categoryRouter);
+app.use("/api/room",roomRouter);
+
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
